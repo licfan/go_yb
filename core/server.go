@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"go_yb/global"
 	"go_yb/initialize"
-	"gopkg.in/yaml.v2"
-	"io/ioutil"
 	"net/http"
 	"time"
 	//"go.uber.org/zap"
@@ -18,16 +16,6 @@ type server interface {
 }
 
 func RunWindowsServer() {
-	//配置文件
-	yamlFile, err := ioutil.ReadFile("config.yaml")
-	if err != nil {
-		fmt.Println(err)
-	}
-	err = yaml.Unmarshal(yamlFile, &global.YB_CONFIG)
-	if err != nil {
-		fmt.Println(err)
-	}
-
 	//路由
 	Router := initialize.Routers()
 
